@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let tablero = new Array();
+var tableroAux = new Array();
+let maxx = 9;
+let maxy = 9;
+
+function aleatorio(min, max) {
+  var horquilla = max - min;
+  return Math.round(Math.random() * horquilla + min);
+}
+
+function rellena(maxx, maxy) {
+  // aquí tendrás que rellenar la matriz.
+  for (row = 0; row < maxy; row++) {
+    tablero.push([]);
+    for (col = 0; col < maxx; col++) {
+      var rand = aleatorio(0, 3);
+      var letra;
+      if (rand == 0 || rand == 3) {
+        letra = "S";
+      } else {
+        letra = "O";
+      }
+
+      tablero[row].push(letra);
+    }
+  }
+}
+
+function resuelve() {
+  //función que resuelve el juego
+  for (row = 0; row < maxy; row++) {
+    tableroAux.push([]);
+    for (col = 0; col < maxx; col++) {
+      tableroAux[row].push(0);
+    }
+  }
+
+  //Recorremos el tablero buscando 'S'
+  for (row = 0; row < tablero.length; row++) {
+    for (col = 0; col < tablero[0].length; col++) {
+      if (tablero[row][col] == "S") {
+        comprueba(row, col);
+      }
+    }
+  }
+}
+
+function comprueba(row, col) {
+  //Horizontal
+  if (
+    col != 0 &&
+    col != tablero[0].length - 1 &&
+    tablero[row][col - 1] == "O" &&
+    tablero[row][col + 1] == "O"
+  ) {
+    tableroAux[row][col - 1] = 1;
+    tableroAux[row][col] = 1;
+    tableroAux[row][col + 1] = 1;
+  }
+  //Vertical
+  if (
+    row != 0 &&
+    row != tablero.length - 1 &&
+    tablero[row - 1][col] == "O" &&
+    tablero[row + 1][col] == "O"
+  ) {
+    tableroAux[row - 1][col] = 1;
+    tableroAux[row][col] = 1;
+    tableroAux[row + 1][col] = 1;
+  }
+  //Diag izq-der
+  if (
+    row != 0 &&
+    row != tablero.length - 1 &&
+    col != 0 &&
+    col != tablero[0].length - 1 &&
+    tablero[row - 1][col - 1] == "O" &&
+    tablero[row + 1][col + 1] == "O"
+  ) {
+    tableroAux[row - 1][col - 1] = 1;
+    tableroAux[row][col] = 1;
+    tableroAux[row + 1][col + 1] = 1;
+  }
+  //Diag der-izq
+  if (
+    row != 0 &&
+    row != tablero.length - 1 &&
+    col != 0 &&
+    col != tablero[0].length - 1 &&
+    tablero[row - 1][col + 1] == "O" &&
+    tablero[row + 1][col - 1] == "O"
+  ) {
+    tableroAux[row - 1][col + 1] = 1;
+    tableroAux[row][col] = 1;
+    tableroAux[row + 1][col - 1] = 1;
+  }
+
+  //Limpiamos el tablero
+  for (row = 0; row < tablero.length; row++) {
+    for (col = 0; col < tablero[0].length; col++) {
+      if (tableroAux[row][col] == 1) {
+        tablero[row][col] = '';
+      }
+    }
+  }
+}
+
+function print(item) {
+  console.log(item);
+}
+
+rellena(maxx, maxy);
+resuelve();
+tablero.forEach(print); //Imprime la matriz en consola fila a fila
+tableroAux.forEach(print); //Imprime la matriz en consola fila a fila
+// console.log(JSON.parse(JSON.stringify(tablero)));
+// resuelve();
+// console.log(tablero);
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let mapa = [
+          ["", "", "", "", "", ""],
+          ["*", "", "", "", "", ""],
+          ["*", "*", "*", "*", "", ""],
+          ["*", "*", "", "*", "", ""],
+          ["*", "*", "", "*", "*", "*"],
+        ];
+  
+  
+        console.log(mapa);
+  
+        let filas = mapa.length - 1;
+        let cols = mapa[0].length - 1;
+  
+        console.log("Dimensiones filas " + filas + " columnas " + cols);
+        //copio mi matriz
+        let matriz = JSON.parse(JSON.stringify(mapa));
+  
+        function recorrer(matriz, fila, col) {
+          //meta es llegar al  4,5
+          //me guardo el caracter
+          let caracter = matriz[fila][col];
+         
+          //lo sustituyo para poder hacerlo recursivo y seguir mirando
+          matriz[fila][col] = "C"; //de camino.
+  
+          //solo será true si moviendose de forma recursiva y al llegar a la final es *
+          let camino = false;
+  
+          //console.log("Hay camino en " + fila + "," + col)
+  
+          //miro derecha
+          if (
+            col < matriz[fila].length - 1 &&
+            matriz[fila][col + 1] == caracter
+          ) {
+            //console.log("derch si")
+            return recorrer(matriz, fila, col + 1);
+          }
+  
+          //miro izqierda
+          if (col > 0 && matriz[fila][col - 1] == caracter) {
+            //console.log("izqui si")
+            return recorrer(matriz, fila, col - 1);
+          }
+  
+          //miro arriba
+          if (fila > 0 && matriz[fila - 1][col] == caracter) {
+            //console.log("arriba si")
+            return recorrer(matriz, fila - 1, col);
+          }
+          //miro abajo
+          if (fila < matriz.length - 1 && matriz[fila + 1][col] == caracter) {
+            //console.log("abajo si")
+            return recorrer(matriz, fila + 1, col);
+          }
+  
+          if (fila == matriz.length - 1 && col == mapa[fila].length - 1) {
+            console.log("Llegan a casilla final " + fila + "," + col);
+            return (camino = true);
+          }
+        }
+  
+        let resultado = recorrer(matriz, 0, 0);
+  
+        console.log(resultado ? "Semos libres" : "No llegamos");
+      </script>
+</body>
+</html>

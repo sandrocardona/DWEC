@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let tablero = new Array();
+        let maxx = 9;
+        let maxy = 9;
+      
+        function aleatorio(min,max){
+           var horquilla = max-min;
+           return Math.round(Math.random()*horquilla+min);
+        }
+      
+        function rellena(x, y){
+          // aquí tendrás que rellenar la matriz.
+            for(i=0;i<x;i++){
+                tablero[x] = [];
+                for(j=0;j<y;j++){
+                let n=Math.random();
+                if(n<0.67){
+                    tablero[x][y]="O";
+                }else{
+                    tablero[x][y]="S";
+                }
+                }
+            }
+        }
+      
+        function resuelve(){
+          //función que resuelve el juego
+        }
+      
+        rellena(5,5);
+        console.log(JSON.parse(JSON.stringify(tablero)));
+        resuelve();
+        console.log(tablero);
+      
+        </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Examen tipo test</h1>
+
+    <!-- Formulario test -->
+
+    <form action="get">
+
+        <!-- Preguntas test -->
+
+        <label for="pregunta1" id="p1" class="pregunta">Responde a la pregunta 1</label> <br>
+        <input type="radio" name="q1" onclick="cambioColor('green','p1')"> Verdadero <br>
+        <input type="radio" name="q1" onclick="cambioColor('red','p1')"> Falso <br><br>
+
+        <label for="pregunta2" id="p2" class="pregunta">Responde a la pregunta 2</label><br>
+        <input type="radio" name="q2" onclick="cambioColor('green','p2')"> Verdadero <br>
+        <input type="radio" name="q2" onclick="cambioColor('red','p2')"> Falso <br><br>
+
+        <label for="pregunta3" id="p3" class="pregunta">Responde a la pregunta 3</label><br>
+        <input type="radio" name="q3" onclick="cambioColor('green','p3')"> Verdadero <br>
+        <input type="radio" name="q3" onclick="cambioColor('red','p3')"> Falso <br><br>
+
+        <label for="pregunta4" id="p4" class="pregunta">Responde a la pregunta 4</label><br>
+        <input type="radio" name="q4" onclick="cambioColor('green','p4')"> Verdadero <br>
+        <input type="radio" name="q4" onclick="cambioColor('red','p4')"> Falso <br><br>
+
+        <label for="pregunta5" id="p5" class="pregunta">Responde a la pregunta 5</label><br>
+        <input type="radio" name="q5" onclick="cambioColor('green','p5')"> Verdadero <br>
+        <input type="radio" name="q5" onclick="cambioColor('red','p5')"> Falso <br><br>
+
+        <label for="pregunta6" id="p6" class="pregunta">Responde a la pregunta 6</label><br>
+        <input type="radio" name="q6" onclick="cambioColor('green','p6')"> Verdadero <br>
+        <input type="radio" name="q6" onclick="cambioColor('red','p6')"> Falso <br><br>
+
+        <label for="pregunta7" id="p7" class="pregunta">Responde a la pregunta 7</label><br>
+        <input type="radio" name="q7" onclick="cambioColor('green','p7')"> Verdadero <br>
+        <input type="radio" name="q7" onclick="cambioColor('red','p7')"> Falso <br><br>
+        
+    </form>
+
+    <!-- JavaScript -->
+
+    <script>
+
+        /* Cambiar color del enunciado según la respuesta */
+        
+        function cambioColor(newColor, pregunta){
+            var elem = document.getElementById(pregunta);
+            elem.style.color = newColor;
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var vikings = '{"vikingos":[{"reino":"Noruega","reyes":["Hakon","Harald","Ivar","Olaf","Bjorn","Ragnar"]},{"reino":"Dinamarca","reyes":["Frodo","Hamming","Angantyr","Horik"]}]}';
+        // skriv inn koden din her. Vær forsiktig med at json-en jukser. Det er ikke en matrise, men et objekt.
+        //Realiza una función flecha que dado el nombre de un vikingo diga si fue un rey o no.
+        let vikingos = JSON.parse(vikings).vikingos;
+        console.log(vikingos);
+        let mostrar = (arr, nombre) => {
+            if(arr.find(e=>e.reyes.find(k=>k===nombre))){
+                console.log("Rey");
+            }else{
+                console.log("plebeyo");
+            }
+        }
+        mostrar(vikingos, "Harald");
+        mostrar(vikingos, "Frodo");
+        mostrar(vikingos,"sandro");
+    </script>
+</body>
+</html>

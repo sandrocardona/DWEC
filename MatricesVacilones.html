@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrices Vacilonas</title>
+</head>
+<body>
+    <input type="number" id="numero" value="5" min="1" max="10"/>
+    <p id="parrafo"></p>
+    <input type="button" onclick="dale()" value="dale">
+
+    <script>
+
+        const dale=()=>{
+            //document.getElementById("parrafo").innerHTML=document.getElementById("numero").value
+            let matriz=[];
+            let filas=document.getElementById("numero").value;
+            let texto = "";
+            for (let i = 0; i < filas; i++) {
+                let arr = [];
+                let linea = "";
+                for (let j = 0; j < filas; j++) {
+                    arr.push(elemento(i,j))
+                    linea+=elemento(i,j)+"&nbsp;"
+                }
+                texto+=linea+"<br>";
+                matriz.push(arr) 
+            }
+            document.getElementById("parrafo").innerHTML=texto;
+            console.log(matriz);
+        }
+
+        const elemento=(f,c)=>{
+            if (f===0) return 1
+            if (c===0) return 1
+            return elemento (f,c-1)+elemento(f-1,c)
+        }
+
+        
+    </script>
+</body>
+</html>

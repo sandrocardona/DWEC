@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let tablero = new Array();
+    let tableroAux = new Array();
+    let maxx = 9;
+    let maxy = 9;
+
+    function aleatorio(min,max){
+        var horquilla = max-min;
+       return Math.round(Math.random()*horquilla+min);
+    }
+
+/*     function rellena(x, y){
+        if(x>maxx || y>maxy){return "introduce un máximo de 9"}
+        else{
+            for(i=0;i<x;i++){
+                tablero[i]=[];
+                let n = Math.random();
+                for(j=0;j<y; j++){
+                    if(n<0.67){
+                        tablero[i][j]="O";
+                    }else{
+                        tablero[i][j]="S";
+                    }
+                }
+            }
+        }
+
+    } */
+
+    function rellena(array){
+        //funcion que rellena el array
+        for(i=0;i<maxx; i++){
+            tablero[i]=[];
+            for(j=0;j<maxy;j++){
+                let n=Math.random();
+                if(n<0.67){
+                    tablero[i].push("0");
+                }else{
+                    tablero[i].push("S");
+                }
+            }
+        }
+    }
+
+    function resuelve(){
+        //función que resuelve el juego
+        for(i=0;i<tablero.length;i++){
+            tableroAux.push([]);
+            for(j=0;j<tablero.length;j++){
+                tableroAux[j].push(0);
+                if(i>0 && tablero[i][j]=="S"){
+                    comprueba(i, j);
+                }
+            }
+        }
+    }
+
+    function comprueba(i, j){
+        //horizontal
+        if(
+            i != 0 &&
+            i < tablero[i].length-1 &&
+            tablero[i][j-1]=="O" &&
+            tablero[i][j+1]=="O"
+        ){
+            tableroAux[i][j-1]=1;
+            tableroAux[i][j]=1;
+            tableroAux[i][j+1]=1;
+        }
+        //vertical
+        if(
+            j != 0 &&
+            j < tablero[i].length-1 &&
+            tablero[i-1][j]=="O" &&
+            tablero[i+1][j]=="O"
+        ){
+            tableroAux[i-1][j]=1;
+            tableroAux[i][j]=1;
+            tableroAux[i+1][j]=1;
+        }
+
+        //izq-der
+        if(
+            i != 0 &&
+            j !=0 &&
+            i < tablero[i].length-1 &&
+            j < tablero[i].length-1 &&
+            tablero[i-1][j-1]=="O" &&
+            tablero[i+1][j+1]=="O"
+        ){
+            tableroAux[i-1][j-1]=1;
+            tableroAux[i][j]=1;
+            tableroAux[i+1][j+1]=1;
+        }
+        //der-izq
+        if(
+            i != 0 &&
+            j !=0 &&
+            i < tablero[i].length-1 &&
+            j < tablero[i].length-1 &&
+            tablero[i-1][j+1]=="O" &&
+            tablero[i+1][j-1]=="O"
+        ){
+            tableroAux[i-1][j+1]=1;
+            tableroAux[i][j]=1;
+            tableroAux[i+1][j-1]=1;
+        }
+
+    }
+
+    rellena(tablero);
+    console.log(JSON.parse(JSON.stringify(tablero)));
+    resuelve(tablero);
+    console.log(JSON.parse(JSON.stringify(tableroAux)));
+    //console.log(tablero);
+    //console.log(tableroAux);
+    </script>
+</body>
+</html>

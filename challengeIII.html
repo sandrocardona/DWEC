@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Challenge III</h1>
+    <script>
+        //funcion para comprobar que el número no esté repetido
+        function comprobar(array, v){
+            for (let i = 0; i < array.length; i++) {
+                if(array[i]==v){
+                    v = Math.ceil(Math.random()*1000);
+                    array[i]=v;
+                }
+            }
+        }
+        //función para crear un array de números aleatorios
+        function crear(n){
+            let array = [];
+            for (let i = 0; i < n; i++) {
+                let x = Math.ceil(Math.random()*1000);
+                array.push(x);
+                comprobar(array, x)
+            }
+            return array;
+        }
+
+        //Arrays de prueba
+        console.log(crear(10));
+        console.log(crear(3));
+
+        //Array de 100 dígitos
+        console.log(crear(1000));
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numeros = [1,[2,3,4],[8,15,[5,1]],27];
+        let arr = [1,2,3,4,5];
+        //console.log(numeros)
+        // ESCRIBE TU CÓDIGO AQUÍ
+
+            function sumatorio(array){
+                let suma = 0;
+                for(let i=0; i<array.length; i++){
+                    if(Array.isArray(array[i])){
+                        suma+=sumatorio(array[i]);
+                    }else{
+                        suma+=array[i];
+                    }
+                }
+                return suma;
+            }
+
+        console.log(sumatorio(numeros));
+        </script>
+</body>
+</html>

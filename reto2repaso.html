@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 2 repaso</title>
+</head>
+<body>
+    <h1>Reto 2</h1>
+    <p id="p"></p>
+    <script>
+        var cars = ["Saab", "Volvo", "BMW",["Honda", "Toyota",["Lexus", "Mercedes", "Lada"], "Hyunday"]];
+        var carrakos = ["Chevrolet", "Tesla", "BMW",["Honda", "Infiniti",["Lexus", "Mercedes", "Kia"], "Hyunday"],["Mazda", "Mercedes", "Jeep",["KTM", "Nissan", "Isuzu"]]];
+        //Alguien sabe hacer una lista única de coches con los dos arrays (sin repeticiones)?
+        
+        let coches=[];
+        let cars2=cars.flat(Infinity);
+        let carrakos2=carrakos.flat(Infinity).filter(v=>!cars2.find(e=>e===v));
+
+        coches.push(cars2,carrakos2);
+        coches=coches.flat(Infinity);
+        
+        console.log("Arrays de todos los coches sin repetir:");
+        console.log(coches);
+        //Alguien sabría decirme los coches de carrakos que no estén en cars?
+
+        document.getElementById("p").innerHTML = (carrakos.flat(Infinity).filter(v=>!cars.find(e=>e===v)));
+
+        //debug con consola
+        console.log("------------------------");
+        console.log("Carrakos que no estan en cars:");
+        console.log(carrakos.flat(Infinity).filter(v=>!cars.flat(Infinity).find(e=>e===v))); //los que no están
+        //console.log(carrakos.flat(Infinity).filter(v=>cars.flat(Infinity).find(e=>e===v))); //los que sí están
+
+
+        var cars = ["Saab", "Volvo", "BMW",["Honda", "Toyota",["Lexus", "Mercedes", "Lada"], "Hyunday"]];
+        var buddies = [ {firstName:"Chuck", lastName:"Norris", car:"Honda"},
+                        {firstName:"Yakie", lastName:"Chang", car:"BMV"},
+                        {firstName:"Bruce", lastName:"Lee", car:"Honda"},
+                        {firstName:"Steven", lastName:"Seagal", car:"Lada"}];
+
+        //-Nombre y apellidos de los buddies que usan un Honda
+        console.log("------------------------");
+        console.log("Buddies que usan Honda");
+        for (let i = 0; i < buddies.length; i++) {
+            if(buddies[i].car=="Honda"){
+                console.log("Nombre: " + buddies[i].firstName);
+                console.log("Apellido: " + buddies[i].lastName);
+            }            
+        }
+        //-Marcas utilizadas por los buddies
+        cars=cars.flat(Infinity);
+        let usados = [];
+        for (let i = 0; i < buddies.length; i++) {
+                usados.push(buddies[i].car);
+        }
+        console.log("------------------------");
+        console.log("Marcas usadas por los buddies: ")
+        console.log(usados);
+
+
+        //-Marcas no utilizadas por los buddies.
+        let nousados=[];
+        console.log("------------------------");
+        console.log("Marcas no usadas por los buddies:");
+        console.log(cars.filter(v=>!usados.find(e=>e===v)));
+        nousados.push(cars.filter(v=>!usados.find(e=>e===v)));
+        nousados=nousados.flat(Infinity);
+        //-Cuantas marcas han sido utilizadas
+        console.log("------------------------");
+        console.log("Número de marcas usadas:");
+        let u = 0;
+        let c = 0;
+        for (let i = 0; i < nousados.length; i++) {
+            c+=1;
+        }
+        for (let i = 0; i < cars.length; i++) {
+            u+=1;  
+        }
+        console.log(u-c);
+
+        //-Cuantas marcas no han sido utilizadas
+        console.log("------------------------");
+        console.log("Número de marcas no usadas:");
+
+
+        console.log(c);
+        </script>
+</body>
+</html>

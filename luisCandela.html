@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p"></p>
+    <script>
+/*         Aquí te dejo varios mapas (arrays) y tienes que crear una función heaven() que funcione en cualquier matriz y
+        muestre “SEMOS LIBRES” por consola si hay un camino de asteriscos (tunel) entre la entrada (esquina superior
+        izquierda) y la salida (esquina inferior derecha). Muestra también el mapa utilizado por consola. */
+
+        let mapa = [['*','','','','',''],
+                    ['*','','','','',''],
+                    ['*','','','','',''],
+                    ['*','','','','',''],
+                    ['*','*','*','*','*','*']];
+
+//otros arrays para comprobaciones
+        //variante con entrada y salida
+        let mapa2 = [['*','*','','','',''],
+                    ['','*','','','',''],
+                    ['','*','*','','',''],
+                    ['','','*','','',''],
+                    ['','*','*','*','*','*']];
+        //array sin salida
+        let mapa3 = [['*','','','','',''],
+                    ['*','','','','',''],
+                    ['*','','','','',''],
+                    ['*','','','','',''],
+                    ['*','*','*','*','*','']];
+        //array sin entrada
+        let mapa4 = [['','','','','',''],
+                    ['*','','','','',''],
+                    ['*','','','','',''],
+                    ['*','','','','',''],
+                    ['*','*','*','*','*','*']];
+
+
+
+        function heaven(array){
+            let c=0;
+            //recorro el array
+            for (let i = 0; i < array.length; i++){
+                for (let j = 0; j < array.length; j++) {    //falta corregir la longitud de j
+                    //si no hay entrada, atrapados
+                    if(array[0][0]==""){
+                        return "atrapados";
+                    }
+                    //si hay entrada, continuamos el camino
+                    else if(array[i][j]==""){
+                        c = 0;
+                    }else if(array[i][j]=="*"){
+                        //cambio el valor para no volver por el mismo camino
+                        array[i][j]="o";
+                        //compruebo casillas adyacentes
+                        if(array[i][j+1]=="*" && j < array.length - 1){
+                            c+=1;
+                            console.log(i);
+                        }else if(array[i+1][j]=="*" && i < array.length - 1){
+                            c+=1;
+                        }else if(array[i][j-1]=="*" && j > 0){
+                            c+=1;
+                        }else if(array[i-1][j]=="*" && i > 0){
+                            c+=1;
+                        }else{
+                            //si no continua el camino, atrapados
+                            return "atrapados";
+                        }
+                    //si no hay salida, atrapados
+                    }else if(array[i.length][j.length]==""){
+                        return "atrapados";
+                    }
+
+                }
+                
+            }
+            if(c>0){
+                return "libres"
+            }else{
+                return "atrapados"};
+        }
+
+        //mostrar por consola resultados y array
+        console.log(heaven(mapa));
+        console.log(mapa);
+        console.log(heaven(mapa2));
+        console.log(mapa2);
+        console.log(heaven(mapa3));
+        console.log(mapa3);
+        console.log(heaven(mapa4));
+        console.log(mapa4);
+    </script>
+</body>
+</html>

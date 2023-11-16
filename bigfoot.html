@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIG FOOT</title>
+</head>
+<body>
+    
+    <script>
+
+        let arr = ["O","F","O","O","S","T","O","F","O","O","O","T","O","F","O","O","O","O","O","T"];
+
+        // ESCRIBE TU CODIGO AQUI
+
+        function buscaFoot(num, arr){
+            if(num===3) return 0; //condición de parada
+            //busco bigfoot de tamaño num
+            console.log("buscando bigfoot tamaño " + num);
+            for(let i=0; i<arr.length-num+1;i++){
+                let posi=i;
+                let posj=i;
+                if(arr[i]=="F"){
+                    while(posj<arr.length && arr[posj+1]==="O"){
+                        posj++;
+                        if(arr[posj+1]=="T"){
+                            posj++;
+                            if((posj - posi+1)==num) return num;
+                        }
+                    }
+                }
+            }
+            //no lo encuentro -> busco bigfoot num-1
+            return(buscaFoot(num-1,arr));
+        }
+        console.log("La cadena más larga tiene un tamaño de: " + 
+        buscaFoot(arr.length,arr));
+    </script>
+</body>
+</html>

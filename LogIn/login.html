@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crea una ventana que valide mediante AJAX los datos de usuario y contraseña introducidos -->
+    <p>Introduzca usuario y contraseña</p>
+    <input type="text" id="texto" placeholder="Usuario"><br><br>
+    <input type="password" id="pwd" placeholder="Contraseña"><br><br>
+    <button type="submit" id="login" onclick="verify()">LogIn</button>
+
+    <!-- Si se introducie usuario: admin y la contraseña "1234" el sistema dirá "USUARIO VÁLIDO", en caso contrario dirá "USUARIO NO VÁLIDO" -->
+
+    <script>
+        var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                }
+            };
+        xhttp.open("GET", "user.json", true);
+        xhttp.send();
+
+        function verify(){
+        alert("funciona");
+        }
+    </script>
+</body>
+</html>

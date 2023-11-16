@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 19.Sep -->
+
+    <script>
+        function calcula(a, b, c){
+            if(arguments.length===1){
+                console.log(Math.pow(a,3))
+            }else if(arguments.length===2){
+                console.log(a*b)
+            }else if(arguments.length===3){
+                console.log(a+b+c)
+            }else{
+                console.log("inserta un máximo de tres parámetros")
+            }
+        };
+
+        calcula(5);
+        calcula(5,5);
+        calcula(5,5,5);
+        calcula(1,1,2,1);
+    </script>
+</body>
+</html>

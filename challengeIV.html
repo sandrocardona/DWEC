@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cuenta elemento no repetidos de un array</h1>
+    <script>
+      let arr1 = [9,9,8,1,2,3,3,4,5,6,7,8,9]
+      let arr2 = [2,3,4,5,6]
+    /*Tienes que contar cuantos elementos del array 1 no están en el array 2. Muestra el resultado por consola*/
+
+    console.log(arr1.filter(e=>!arr2.find(f=>f===e)).length); //averigua los que no están
+    console.log(arr1.filter(e=>arr2.find(f=>f===e)).length); //averigua los que están
+
+
+    </script>
+</body>
+</html>

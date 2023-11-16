@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Contenido -->
+    
+    <div>
+        <h1>Imágenes</h1>
+        <p>Haz click para cambiar de imágen</p>
+    </div>
+    <div id="div">
+        <img src="./imagenes/primavera.jpg" alt="primavera" id="primavera" width="344" height="344" onclick="f(this.id)">        
+    </div>
+
+    <script>
+
+        /* Pasa a la siguiente imagen al hacer click */
+
+        function f(id){
+            let imagen = document.getElementById(id);
+            if(id === "primavera"){
+                imagen.src = "./imagenes/verano.jpg";
+                imagen.id = "verano";
+            }else if(id === "verano"){
+                imagen.src = "./imagenes/otono.jpg";
+                imagen.id = "otono";
+            }else if(id === "otono"){
+                imagen.src = "./imagenes/invierno.jpg";
+                imagen.id = "invierno";
+            }else if(id === "invierno"){
+                imagen.src = "./imagenes/primavera.jpg";
+                imagen.id = "primavera"
+            }
+        }
+    </script>
+</body>
+</html>

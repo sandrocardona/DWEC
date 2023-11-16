@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let people = ["perico", "juanico",
+        "andres","dimas","gestas","zarco", "maimonides",
+        "elias","jeremias","dimas","dimas","gestas"];
+        console.log(people)
+        // ESCRIBE TU CÓDIGO AQUÍ
+
+/*         function find(nombre){
+            let n = 0;
+            let i = 0;
+            if(people[i]==nombre){
+                n++;
+                i++;
+            }else if(people[i]!=nombre){
+                i++;
+            }else{
+                return "No se encuentra el nombre";
+            }
+            find(nombre);
+            return n;
+        } */
+
+        const FindMyGuy=(array,pos,guy)=>{
+            let c=0;
+            if (array.length === pos) return 0;
+            if (array[pos]==guy) c++;
+            return c + FindMyGuy(array,pos+1,guy)
+        }
+
+        console.log(find("perico"));
+        console.log(find("dimas"));
+        console.log(find("antonio"));
+    </script>
+</body>
+</html>

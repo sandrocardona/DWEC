@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Título y contenido-->
+
+    <h1>Selecciona un lenguaje</h1>
+    <p id="txt"></p>
+
+    <!--Botones display de mensaje-->
+
+    <button type="button" id="btn1" name="btn1" class="btn" onclick="mensaje(this.name)">Español</button>
+    <button type="button" id="btn2" name="btn2" class="btn" onclick="mensaje(this.name)">Inglés</button>
+    <button type="button" id="btn3" name="btn3" class="btn" onclick="mensaje(this.name)">Ruso</button>
+
+    <script>
+
+        /* Mensaje de bienvenida */
+
+        var p = document.getElementById("txt");
+        function mensaje(name){
+            if(name == "btn1"){
+                p.innerHTML = "Bienvenido";
+                p.style.color = "green";
+            }else if(name == "btn2"){
+                p.innerHTML = "Welcome";
+                p.style.color = "blue";
+            }else if(name == "btn3"){
+                p.innerHTML = "Добро пожаловать";
+                p.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

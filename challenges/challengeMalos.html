@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>¿Qué reyes son malos</h1>
+    <h1>Qué nombre aparece más</h1>
+<!--     <script>
+        const REYES = ["Chindatore",["Lauro","Sisebuto",["Fracisbuto","Vigafredo",["Leovigildo","Recaredo"]]],["Chindasvinto","Rencesvinto","Lautaro"],"Amalarico II"];
+        
+        const MALOS = ["Fracisbuto","Vigafredo","Lauro","sandro"];
+
+        console.log(REYES.flat(Infinity).filter(r=>MALOS.find(m=>m==r)));
+    </script> -->
+
+    <script>
+        const REYES = ["Fracisbuto","Vigafredo","Lauro","Lauro","Lauro","Chindatore",["Lauro","Sisebuto",["Fracisbuto","Vigafredo",["Leovigildo","Recaredo"]]],["Chindasvinto","Rencesvinto","Lautaro"],"Amalarico II"];
+
+        let reyes=REYES.flat(Infinity);
+        let cuantosmayor = 0;
+        let famoso = "";
+        reyes.map((e=>{
+            let cuantos = reyes.filter(f=>f==e).length
+            //console.log(e + " " + cuantos);
+            if (cuantos>cuantosmayor){
+                cuantosmayor=cuantos
+                famoso=e
+            }
+        }))
+
+        console.log(famoso + " " + cuantosmayor);
+    </script>
+</body>
+</html>

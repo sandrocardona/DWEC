@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+
+        <h1>STALINGRADO</h1>
+        <p id="matriz"></p>
+        <h2 id="ganador"></h2>
+        
+        <script>
+        let battlefield = [
+        ["A","A","","","R","","","",""],
+        ["A","A","","","R","","","",""],
+        ["","","","","R","","","",""],
+        ["","","","","R","","","",""],
+        ["","","","","R","","","",""],
+        ["","","","","R","","","",""],
+        ["","","","","R","","","",""],
+        ["","","","","R","","","A","A"],
+        ["","","","","R","","","A","A"]
+        ];
+
+        function show(arr){
+            let texto="";
+            for (let i = 0; i < arr.length; i++){
+                let linea="";
+                for (let j = 0; j < arr.length; j++) {
+                    if(arr[i][j]==""){
+                        arr[i][j]="O";
+                    }
+                    linea+=arr[i][j]+"&nbsp;"
+                }
+                texto+=linea+"<br>";
+            }
+            document.getElementById("matriz").innerHTML=texto;
+        }
+
+        console.log(show(battlefield));
+        //console.log(battlefield);
+        </script>
+</body>
+</html>

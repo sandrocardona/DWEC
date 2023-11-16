@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge V</title>
+</head>
+<body>
+    <h1>Challenge V</h1>
+    <label for="texto">Escribe tu frase</label>
+    <input type="text" id="text" name="text"/>
+    <button type="submit" onclick="invert()">invert</button>
+    <button type="submit" onclick="parrafo()">parrafo</button>
+    <p id="respuesta"></p>
+    <script>
+        function invert(){
+            //almacenar texto en variable
+            let texto = document.getElementById("text").value;
+            //invertir texto
+            let invertido = [];
+            for(i=texto.length;i>=0;i--){
+                invertido.push(texto[i]);
+            }
+            //display texto
+            document.getElementById("respuesta").innerHTML = invertido;
+        }
+
+        function parrafo(){
+            document.getElementById("respuesta").innerHTML = document.getElementById("text").value;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge VII</title>
+</head>
+<body>
+    <h1>CHALLENGE VII</h1>
+    <p>Cual es la última generación de Reyes</p>
+    <script>
+        const REYES = ["Chindatore",["Chindasvinto","Rencesvinto","Lautaro"],["Lauro","Sisebuto",["Fracisbuto","Vigafredo",["Leovigildo","Recaredo"]]],"Amalarico II"];
+
+        //Contar las generaciones
+
+        function givemeLasGen(arr,nivel){
+            let nivelret=nivel;
+            //recorrer el array
+            arr.map(e=>{
+                if (Array.isArray(e)){
+                    let aux = givemeLasGen(e, nivel+1);
+                    if(aux>nivelret){
+                        nivelret = aux;
+                    }
+                }
+            })
+            return nivelret;
+        }
+
+        console.log(givemeLasGen(REYES,1));
+    </script>
+</body>
+</html>
